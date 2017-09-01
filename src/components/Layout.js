@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 // IMPORT NavLink <<<<<<<<<<<<<<<
+import {NavLink} from 'react-router-dom'
 
 export default class BaseLayout extends Component {
   render(){
@@ -21,15 +22,21 @@ export default class BaseLayout extends Component {
               <ul className="nav navbar-nav">
                 <li>
                   {/* Add a NavLink set to the home page. Set the activeStyle to a color of yellow */}
+                  <NavLink activeStyle={{
+                    'color': 'yellow'
+                  }} activeClassName='selected' className='nav-link' exact to='/'>Main</NavLink>
                 </li>
                 <li>
                   {/* Add a NavLink set to characters. Include activeClassName */}
+                  <NavLink activeClassName='selected' className='nav-link' exact to='/characters'>Characters</NavLink>
                 </li>
                 <li>
                   {/* Add a NavLink set to starships. Include activeClassName */}
+                  <NavLink activeClassName='selected' className='nav-link' exact to='/starships'>Starships</NavLink>
                 </li>
                 <li>
                   {/* Add a NavLink set to films. Include activeClassName */}
+                  <NavLink activeClassName='selected' className='nav-link' exact to='/films'>Films</NavLink>
                 </li>
               </ul>
             </div>
@@ -40,6 +47,7 @@ export default class BaseLayout extends Component {
         {/*
           PASS IN CHILD COMPONENTS <<<<<<<<<<<<<<<<<<<
           */}
+          {this.props.children}
         <footer className="col-lg-11">
           <span>
             SWAPI EXPLORER
